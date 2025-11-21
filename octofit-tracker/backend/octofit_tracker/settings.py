@@ -14,7 +14,10 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'replace-me-with-secure-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Allowed hosts: follow project instructions and include codespace mapping when present
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+if os.environ.get('CODESPACE_NAME'):
+    ALLOWED_HOSTS.append(f"{os.environ.get('CODESPACE_NAME')}-8000.app.github.dev")
 
 # Application definition
 INSTALLED_APPS = [
