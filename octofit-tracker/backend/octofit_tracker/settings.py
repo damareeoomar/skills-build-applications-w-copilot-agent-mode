@@ -10,7 +10,14 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'replace-me-with-a-secure-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+import os as _os
+
+# Allowed hosts: include localhost and Codespaces host derived from $CODESPACE_NAME
+_CODESPACE_NAME = _os.environ.get('CODESPACE_NAME')
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+if _CODESPACE_NAME:
+    ALLOWED_HOSTS.append(f"{_CODESPACE_NAME}-8000.app.github.dev")
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
