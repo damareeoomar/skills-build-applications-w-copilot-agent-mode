@@ -2,6 +2,31 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Run React (frontend)",
+      "type": "pwa-node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "cwd": "${workspaceFolder}/octofit-tracker/frontend",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "presentation": { "reveal": "always" }
+    },
+    {
+      "name": "Open Browser (Vite)",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/octofit-tracker/frontend/src",
+      "runtimeArgs": ["--remote-debugging-port=9222"],
+      "preLaunchTask": ""
+    }
+  ]
+}
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
       "name": "Launch Django Backend",
       "type": "python",
       "request": "launch",
